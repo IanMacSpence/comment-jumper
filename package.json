@@ -1,0 +1,66 @@
+{
+  "name": "comment-jumper",
+  "displayName": "commentJumper",
+  "description": "Prepends comments with \"bm-\" and allows the user to use them as bookmarks and to navigate between them with keyboard shortcuts",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "comment-jumper.addBookmarkComment",
+        "title": "Add Bookmark Comment"
+      }, 
+      {
+        "command": "comment-jumper.jumpToNextBookmarkComment",
+        "title": "Jump to Next Bookmark Comment"
+      },
+      {
+        "command": "comment-jumper.jumpToPreviousBookmarkComment",
+        "title": "Jump to Previous Bookmark Comment"
+      }, 
+      {
+        "command": "comment-jumper.jumpToMarkedBookmark",
+        "title": "Jump to Marked Bookmark"
+      },
+      {
+        "command": "comment-jumper.setMarkedBookmarkPosition",
+        "title": "Mark bookmark to jump back to"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.84.0",
+    "@types/mocha": "^10.0.3",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2",
+    "ts-loader": "^9.5.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-electron": "^2.3.6"
+  }
+}
